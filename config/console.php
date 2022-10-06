@@ -14,6 +14,9 @@ $config = [
         '@tests' => '@app/tests',
     ],
     'components' => [
+        'security' => [
+            'passwordHashCost' => YII_DEBUG ? 10 : 13,
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
