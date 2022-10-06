@@ -157,9 +157,9 @@ class UserController extends BaseController
         $data = $user->getAttributes(['id', 'username', 'nickname']);
         $time = time();
         $accessTokenJwt = [
-            'user' => Json::encode($data),
+            'user' => $data,
             'iat' => $time,
-            'exp' => $time + 180,
+            'exp' => $time + Yii::$app->params['jwt-access-token-expire-time'],
         ];
         return JWT::encode($accessTokenJwt, Yii::$app->params['jwt-key']);
     }
@@ -193,7 +193,7 @@ class UserController extends BaseController
             'token' => $model->refresh_token,
             'uid' => $user->id,
             'iat' => $time,
-            'exp' => $time + 300,
+            'exp' => $time + Yii::$app->params['jwt-refresh-token-expire-time'],
         ];
         return JWT::encode($refreshTokenJwt, Yii::$app->params['jwt-key']);
     }

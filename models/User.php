@@ -71,8 +71,7 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         try {
             $payload = JWT::decode($token, Yii::$app->params['jwt-key']);
-            $user = Json::decode($payload['user']);
-            return new static($user);
+            return new static($payload['user']);
         } catch (\Exception $e) {
             return null;
         }
