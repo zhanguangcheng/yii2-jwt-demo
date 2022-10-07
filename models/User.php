@@ -4,7 +4,6 @@ namespace app\models;
 
 use app\components\JWT;
 use Yii;
-use yii\helpers\Json;
 
 /**
 * This is the model class for table "user".

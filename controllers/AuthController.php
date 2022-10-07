@@ -8,11 +8,10 @@ use app\models\User;
 use app\models\UserRefreshToken;
 use UnexpectedValueException;
 use Yii;
-use yii\helpers\Json;
 use yii\web\ForbiddenHttpException;
 use yii\web\ServerErrorHttpException;
 
-class UserController extends BaseController
+class AuthController extends BaseController
 {
     protected function verbs()
     {
